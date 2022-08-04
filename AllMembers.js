@@ -12,9 +12,13 @@ function AllMembers() {
 
     async function deleteMember(id) {
         // await axios.delete(`http://localhost:3050/sub/${id}`)
-        await axios.delete(`http://localhost:3050/members/${id}`)
+       const {data}= await axios.delete(`http://localhost:3050/members/${id}`)
+       if(data=="deleted😪"){
+        window.location.reload()
         alert("member deleted also from his subscriptions")
-        setMembers([...members])
+       }
+      
+        // setMembers([...members])
 
     }
     async function getAllMembers() {
